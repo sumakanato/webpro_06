@@ -39,12 +39,12 @@ app.get("/janken", (req, res) => {
   else cpu = 'パー';
   // ここに勝敗の判定を入れる
   let judgement = '';
-  if (hand === cpu) {
+  if (hand == cpu) {
     judgement = '引き分け';
   } else if (
-    (hand === 'グー' && cpu === 'チョキ') ||
-    (hand === 'チョキ' && cpu === 'パー') ||
-    (hand === 'パー' && cpu === 'グー')
+    (hand == 'グー' && cpu == 'チョキ') ||
+    (hand == 'チョキ' && cpu == 'パー') ||
+    (hand == 'パー' && cpu == 'グー')
   ) {
     judgement = '勝ち';
     win += 1;
