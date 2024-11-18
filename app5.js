@@ -64,4 +64,95 @@ app.get("/janken", (req, res) => {
   res.render( 'janken', display );
 });
 
+let num = Math.floor( Math.random() * 100 + 1 );
+
+app.get("/high", (req, res) => {
+  let hand = req.query.hand;
+  let good = Number( req.query.good );
+  let total = Number( req.query.total );
+  console.log( {hand});
+
+  let judgement = '';
+      if (hand == num) {
+    judgement = 'ピッタリ！';
+    good +=1;
+    num = Math.floor( Math.random() * 100 + 1 );
+    
+  } else if (
+    hand > num
+  ) {
+    judgement = 'その数より低いです！';
+  } else if (
+    hand < num
+  ){
+    judgement = 'その数より高いです！';
+  }
+  
+
+  total += 1;
+  
+  const display = {
+    your: hand,
+    num: num,
+    judgement: judgement,
+    good: good,
+    total: total
+  }
+  res.render( 'high', display );
+});
+
+app.get("/unn", (req, res) => {
+  const value = req.query.radio;
+  console.log( {value});
+  const e = Math.floor( Math.random() * 5 + 1 );
+
+  const a = Math.floor( Math.random() * 5 + 1 );
+
+  const b = Math.floor( Math.random() * 5 + 1 );
+ 
+  const c = Math.floor( Math.random() * 5 + 1 );
+  
+  const d = Math.floor( Math.random() * 5 + 1 );
+
+  const f = Math.floor( Math.random() * 5 + 1 );
+  let cpu = '';
+  if( f==1 ) cpu = 'グミ';
+  else if( f==2 ) cpu = 'メガネ';
+  else if( f==3 ) cpu = '折りたたみ傘';
+  else if( f==4 ) cpu = 'ノート';
+  else cpu = 'お守り';
+
+  let judgement = '';
+  let imi = '';
+  if (e + a + b + c + d <= 10) { 
+    judgement = '凶';
+    imi = 'とても運が悪いです．気を付けて過ごそう！';
+  } else if (e + a + b + c + d <= 15) {
+    judgement = '末吉';
+    imi = 'そこそこです．何もありません'
+  } else if (e + a + b + c + d <= 18) {
+    judgement = '小吉';
+    imi = '普通です．いつもどおりです'
+  }  else if (e + a + b + c + d <= 21) {
+    judgement = '中吉';
+    imi = '結構良いです．なにか良いことがあるかも！？'
+  }  else if (e + a + b + c + d <= 25) {
+    judgement = '大吉';
+    imi = 'とても運がいいです．なにか良いことがあるでしょう！'
+  }  
+  
+  const display = {
+    a: a,
+    b: b,
+    c: c,
+    d: d,
+    e: e,
+    f: f,
+    cpu: cpu,
+    judgement: judgement,
+    imi: imi,
+  }
+  res.render( 'unn', display );
+});
+
 app.listen(8080, () => console.log("Example app listening on port 8080!"));

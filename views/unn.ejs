@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>本日の運</title>
+</head>
+<body>
+    <p>恋愛運:<%= a %>です．</p>
+    <p>仕事運：<%= b %>です．</p>
+    <p>金運:<%= c %>です．</p>
+    <p>健康運:<%= d %>です．</p>
+    <p>ガチャ運:<%= e %>です．</p>
+    <p>本日の運は<%= judgement %>です．<%= imi %></p>
+    <p>本日のラッキーアイテムは<%= cpu %>です．</p>
+    <hr>
+    <form action="/unn">
+        <input type="radio" name="radio" id="radio1" value="1">
+        <label for="radio1">1</label><br>
+        <input type="radio" name="radio" id="radio2" value="2">
+        <label for="radio1">2</label><br>
+        <input type="radio" name="radio" id="radio3" value="3">
+        <label for="radio1">3</label><br>
+        <input type="submit" value="送信">
+    </form>   
+</body>
+</html>
