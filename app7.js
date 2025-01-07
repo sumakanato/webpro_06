@@ -108,7 +108,7 @@ app.post("/read", (req, res) => {
 app.post("/post", (req, res) => {
   const name = req.body.name;
   const message = req.body.message;
-  bbs.push({ name: name, message: message, likes: 0 }); // 初期値として likes を 0 に設定
+  bbs.push({ name: name, message: message, likes: 0 }); 
   res.json({ number: bbs.length });
 });
 
@@ -158,7 +158,7 @@ app.post("/like", (req, res) => {
     return;
   }
 
-  bbs[id].likes += 1; // いいねのカウントを増加
+  bbs[id].likes += 1;
   res.json({ success: true, likes: bbs[id].likes });
 });
 

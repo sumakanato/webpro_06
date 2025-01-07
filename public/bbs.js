@@ -3,7 +3,6 @@
 let number = 0;
 const bbs = document.querySelector("#bbs");
 
-// 投稿処理
 document.querySelector("#post").onclick = function () {
   const name = document.querySelector("#name").value;
   const message = document.querySelector("#message").value;
@@ -28,7 +27,6 @@ document.querySelector("#post").onclick = function () {
     });
 };
 
-// 投稿チェック処理
 document.querySelector("#check").onclick = function () {
   const params = {
     method: "POST",
@@ -73,7 +71,6 @@ document.querySelector("#check").onclick = function () {
     });
 };
 
-// 投稿を表示
 function displayPost(mes, index) {
   const cover = document.createElement("div");
   cover.className = "cover";
@@ -124,7 +121,6 @@ function displayPost(mes, index) {
   bbs.appendChild(cover);
 }
 
-// 投稿削除
 function deletePost(index) {
   const params = {
     method: "POST",
@@ -142,11 +138,11 @@ function deletePost(index) {
       return response.json();
     })
     .then(() => {
-      location.reload(); // ページをリロードして投稿を更新
+      location.reload(); 
     });
 }
 
-// 投稿編集
+
 function editPost(index, newMessage, mes_area) {
   const params = {
     method: "POST",
@@ -164,11 +160,10 @@ function editPost(index, newMessage, mes_area) {
       return response.json();
     })
     .then(() => {
-      mes_area.innerText = newMessage; // 編集内容を即時反映
+      mes_area.innerText = newMessage; 
     });
 }
 
-// いいね処理
 function likePost(index, like_area) {
   const params = {
     method: "POST",
@@ -192,7 +187,6 @@ function likePost(index, like_area) {
     });
 }
 
-// 投稿検索
 document.querySelector("#search").onclick = function () {
   const keyword = document.querySelector("#searchKeyword").value;
 
@@ -212,7 +206,7 @@ document.querySelector("#search").onclick = function () {
       return response.json();
     })
     .then((response) => {
-      bbs.innerHTML = ""; // 検索結果を表示するためにクリア
+      bbs.innerHTML = ""; 
       response.results.forEach((mes, index) => {
         displayPost(mes, index);
       });
