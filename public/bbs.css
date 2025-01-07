@@ -1,0 +1,26 @@
+.cover {
+    border-bottom: 1px solid #c0c0c0;
+    margin: 3px;
+    padding: 5px;
+}
+
+.name {
+    font-weight: bold;
+    width: 8em;
+}
+
+.mes {
+    margin-left: 30px;
+}
+
+.date {
+    margin-left: 20px;
+    font-size: 0.8em;
+    color: #808080;
+}
+
+button.delete {
+    margin-left: 10px;
+    color: red;
+    cursor: pointer;
+}

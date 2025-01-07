@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>掲示板</title>
+    <script src="./rest.js" defer></script>
+    <link rel="stylesheet" href="./rest.css">
+</head>
+<body>
+    <h1>掲示板操作</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>URLの例</th>
+                <th>GET</th>
+                <th>POST</th>
+                <th>PUT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>/BBS</td>
+                <td><button type="button" id="get1">一覧取得</button></td>
+                <td><button type="button" id="post2">新規投稿</button></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>/BBS/1</td>
+                <td><button type="button" id="get2">詳細取得</button></td>
+                <td></td>
+                <td><button type="button" id="put">更新</button></td>
+                <td><button type="button" id="delete">削除</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>新規投稿フォーム</h2>
+    <form id="postForm">
+        <label for="postName">名前:</label>
+        <input type="text" id="postName" name="name" required>
+        <br>
+        <label for="postMessage">メッセージ:</label>
+        <textarea id="postMessage" name="message" required></textarea>
+        <br>
+        <button type="button" id="submitPost">投稿</button>
+    </form>
+
+    <h2>更新フォーム</h2>
+    <form id="putForm">
+        <label for="putId">ID:</label>
+        <input type="number" id="putId" name="id" required>
+        <br>
+        <label for="putName">名前:</label>
+        <input type="text" id="putName" name="name" required>
+        <br>
+        <label for="putMessage">メッセージ:</label>
+        <textarea id="putMessage" name="message" required></textarea>
+        <br>
+        <button type="button" id="submitPut">更新</button>
+    </form>
+
+    <h2>削除フォーム</h2>
+    <form id="deleteForm">
+        <label for="deleteId">ID:</label>
+        <input type="number" id="deleteId" name="id" required>
+        <br>
+        <button type="button" id="submitDelete">削除</button>
+    </form>
+</body>
+</html>
